@@ -1,0 +1,165 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "TMAPINFO v1.0.0 schema",
+  "type": "object",
+  "required": ["version"],
+  "properties": {
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "clearepisodes": {
+      "type": "boolean"
+    },
+    "episodes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["startmap"],
+        "properties": {
+          "startmap": {
+            "type": "string",
+            "pattern": "^(MAP\\d+|E\\d+M\\d+)$",
+            "maxLength": 8
+          },
+          "patch": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "key": {
+            "type": "string",
+            "maxLength": 1,
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "defaults": {
+      "type": "object",
+      "properties": {
+        "global": {
+          "$ref": "#/$defs/mapSchema"
+        }
+      },
+      "patternProperties": {
+        "^(?!vanilla$)[a-zA-Z0-9_-]+$": {
+          "$ref": "#/$defs/mapSchema"
+        }
+      },
+      "additionalProperties": false
+    },
+    "maps": {
+      "patternProperties": {
+        "^(MAP\\d+|E\\d+M\\d+)$": {
+          "$ref": "#/$defs/mapSchema"
+        }
+      },
+      "propertyNames": {
+        "maxLength": 8
+      },
+      "additionalProperties": false
+    },
+    "additionalProperties": false
+  },
+  "$defs": {
+    "mapSchema": {
+      "properties": {
+        "defaults": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "sky": {
+          "type": "string"
+        },
+        "music": {
+          "type": "string"
+        },
+        "intertext": {
+          "type": "string"
+        },
+        "intertextsecret": {
+          "type": "string"
+        },
+        "intermusic": {
+          "type": "string"
+        },
+        "interbackdrop": {
+          "type": "string"
+        },
+        "author": {
+          "type": "string"
+        },
+        "levelpic": {
+          "type": "string"
+        },
+        "exitpic": {
+          "type": "string"
+        },
+        "exitanim": {
+          "type": "string"
+        },
+        "enterpic": {
+          "type": "string"
+        },
+        "enteranim": {
+          "type": "string"
+        },
+        "nointermission": {
+          "type": "boolean"
+        },
+        "next": {
+          "type": "string"
+        },
+        "nextsecret": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        },
+        "levelname": {
+          "type": "string"
+        },
+        "partime": {
+          "type": "integer"
+        },
+        "endgame": {
+          "type": "boolean"
+        },
+        "endbunny": {
+          "type": "string"
+        },
+        "endcast": {
+          "type": "string"
+        },
+        "endfinale": {
+          "type": "string"
+        },
+        "bossactions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["thingtype", "linespecial", "tag"],
+            "properties": {
+              "thingtype": {
+                "type": "string"
+              },
+              "linespecial": {
+                "type": "integer"
+              },
+              "tag": {
+                "type": "integer"
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}
