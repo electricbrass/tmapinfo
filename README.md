@@ -9,9 +9,6 @@ Examples:
 version = "1.0.0"
 
 clearepisodes = true
-# episode = clear doesnt work with toml
-# tbh i think episode definition being its own block isnt a bad idea
-# otherwise a simple top level thing to clear like this is simple in toml
 episodes = [
     { startmap = "MAP01", patch = "M_EPI1", name = "episode 1", key = "b" },
     { startmap = "MAP02", patch = "M_EPI2", name = "episode 2" }

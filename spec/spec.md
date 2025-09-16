@@ -9,6 +9,7 @@ TODO:
   - global goes first
 - should bossactions and compatibility flags should be additive? it seems like yes, but then how to clear *and* add new ones at the same time?
   - maybe we need something like clearepisodes for those...
+- per-map complevel?
 
 ## Compatibility Flags
 
