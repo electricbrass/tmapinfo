@@ -1,6 +1,6 @@
-# tmapinfo
+# TMAPINFO
 
-The spec for TMAPINFO, a TOML based MAPINFO for Doom ports
+TMAPINFO is a MAPINFO variant that builds on the featureset of UMAPINFO 2.2 with clearer behavior, TOML syntax, and a few additional features, such as compatibility flags and user-definable default map properties.
 
 Examples:
 
@@ -49,7 +49,7 @@ Hey look its some intertext
 with multiple lines
 """
 next = "MAP02"
-bossactions = [] # equivalent to bossaction = clear
+bossactions = [] # equivalent to UMAPINFO's bossaction = clear
 
 [maps.MAP02]
 defaults = [ "compat_stuff", "episode2" ]
